@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include <gtest/gtest.h>
 #include "VarietyStore.h"
 
@@ -12,40 +12,30 @@ public:
 };
 
 void VarietyStoreTest::SetUp() {
-	auto* p1 = new Item("Ãæ°ü", 10, 20);
-	auto* p2 = new Maotai("Ã©Ì¨", 2, 0);
-	auto* p3 = new Item("·½±ãÃæ", 5, 7);
-	auto* p4 = new Diamond("×ê½ä", 0, 80);
-	auto* p5 = new Diamond("×ê½ä", -1, 80);
-	auto* p6 = new Kimi("ÆæÒì¹û", 15, 20);
-	auto* p7 = new Kimi("ÆæÒì¹û", 10, 49);
-	auto* p8 = new Kimi("ÆæÒì¹û", 5, 49);
-	auto* p9 = new Banana("Ïã½¶", 3, 6);
-
-	app.addItem(p1);
-	app.addItem(p2);
-	app.addItem(p3);
-	app.addItem(p4);
-	app.addItem(p5);
-	app.addItem(p6);
-	app.addItem(p7);
-	app.addItem(p8);
-	app.addItem(p9);
+	app.addItem(std::make_shared<Item>("é¢åŒ…", 10, 20));
+	app.addItem(std::make_shared<Maotai>("èŒ…å°", 2, 0));
+	app.addItem(std::make_shared<Item>("æ–¹ä¾¿é¢", 5, 7));
+	app.addItem(std::make_shared<Diamond>("é’»æˆ’", 0, 80));
+	app.addItem(std::make_shared<Diamond>("é’»æˆ’", -1, 80));
+	app.addItem(std::make_shared<Kimi>("å¥‡å¼‚æœ", 15, 20));
+	app.addItem(std::make_shared<Kimi>("å¥‡å¼‚æœ", 10, 49));
+	app.addItem(std::make_shared<Kimi>("å¥‡å¼‚æœ", 5, 49));
+	app.addItem(std::make_shared<Banana>("é¦™è•‰", 3, 6));
 }
 
 TEST_F(VarietyStoreTest, testday1) {
 	for (int i = 0; i < 1; ++i) {
 		app.updateItems();
 	}
-	//EXPECT_EQ("Ãæ°ü", app.items[0]->name);
-	EXPECT_EQ("Ãæ°ü", app.items[0]->name);
-	//EXPECT_EQ("·½±ãÃæ", app.items[2]->name);
-	//EXPECT_EQ("×ê½ä", app.items[3]->name);
-	//EXPECT_EQ("×ê½ä", app.items[4]->name);
-	//EXPECT_EQ("ÆæÒì¹û", app.items[5]->name);
-	//EXPECT_EQ("ÆæÒì¹û", app.items[6]->name);
-	//EXPECT_EQ("ÆæÒì¹û", app.items[7]->name);
-	//EXPECT_EQ("Ïã½¶", app.items[8]->name);
+	//EXPECT_EQ("é¢åŒ…", app.items[0]->name);
+	EXPECT_EQ("é¢åŒ…", app.items[0]->name);
+	//EXPECT_EQ("æ–¹ä¾¿é¢", app.items[2]->name);
+	//EXPECT_EQ("é’»æˆ’", app.items[3]->name);
+	//EXPECT_EQ("é’»æˆ’", app.items[4]->name);
+	//EXPECT_EQ("å¥‡å¼‚æœ", app.items[5]->name);
+	//EXPECT_EQ("å¥‡å¼‚æœ", app.items[6]->name);
+	//EXPECT_EQ("å¥‡å¼‚æœ", app.items[7]->name);
+	//EXPECT_EQ("é¦™è•‰", app.items[8]->name);
 
 	//EXPECT_EQ(8, app.items[0]->sellDeadline);
 	EXPECT_EQ(9, app.items[0]->sellDeadline);
@@ -73,7 +63,7 @@ TEST_F(VarietyStoreTest, testday2) {
 	for (int i = 0; i < 2; ++i) {
 		app.updateItems();
 	}
-	EXPECT_EQ("Ïã½¶", app.items[8]->name);
+	EXPECT_EQ("é¦™è•‰", app.items[8]->name);
 	EXPECT_EQ(1, app.items[8]->sellDeadline);
 	EXPECT_EQ(2, app.items[8]->price);
 }
@@ -83,7 +73,7 @@ TEST_F(VarietyStoreTest, testday3) {
 		app.updateItems();
 	}
 
-	EXPECT_EQ("Ã©Ì¨", app.items[1]->name);
+	EXPECT_EQ("èŒ…å°", app.items[1]->name);
 	EXPECT_EQ(-1, app.items[1]->sellDeadline);
 	EXPECT_EQ(4, app.items[1]->price);
 }
@@ -93,7 +83,7 @@ TEST_F(VarietyStoreTest, testday6) {
 	for (int i = 0; i < 6; ++i) {
 		app.updateItems();
 	}
-	EXPECT_EQ("ÆæÒì¹û", app.items[5]->name);
+	EXPECT_EQ("å¥‡å¼‚æœ", app.items[5]->name);
 	EXPECT_EQ(9, app.items[5]->sellDeadline);
 	EXPECT_EQ(27, app.items[5]->price);
 }
@@ -102,7 +92,7 @@ TEST_F(VarietyStoreTest, testday11) {
 	for (int i = 0; i < 11; ++i) {
 		app.updateItems();
 	}
-	EXPECT_EQ("ÆæÒì¹û", app.items[5]->name);
+	EXPECT_EQ("å¥‡å¼‚æœ", app.items[5]->name);
 	EXPECT_EQ(4, app.items[5]->sellDeadline);
 	EXPECT_EQ(38, app.items[5]->price);
 }
@@ -111,7 +101,7 @@ TEST_F(VarietyStoreTest, testday16) {
 	for (int i = 0; i < 16; ++i) {
 		app.updateItems();
 	}
-	EXPECT_EQ("ÆæÒì¹û", app.items[5]->name);
+	EXPECT_EQ("å¥‡å¼‚æœ", app.items[5]->name);
 	EXPECT_EQ(-1, app.items[5]->sellDeadline);
 	EXPECT_EQ(0, app.items[5]->price);
 }
@@ -121,7 +111,7 @@ TEST_F(VarietyStoreTest, testday26) {
 	for (int i = 0; i < 26; ++i) {
 		app.updateItems();
 	}
-	EXPECT_EQ("Ã©Ì¨", app.items[1]->name);
+	EXPECT_EQ("èŒ…å°", app.items[1]->name);
 	EXPECT_EQ(-24, app.items[1]->sellDeadline);
 	EXPECT_EQ(50, app.items[1]->price);
 }

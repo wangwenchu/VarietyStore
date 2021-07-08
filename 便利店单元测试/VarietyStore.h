@@ -1,11 +1,11 @@
-#include <string>
+ï»¿#include <string>
 #include <vector>
 
 using namespace std;
 
 /**
  * @author jarenzhang
- * ¿¡¸çËµ±ğ¶¯ËûµÄ´úÂë
+ * ä¿Šå“¥è¯´åˆ«åŠ¨ä»–çš„ä»£ç 
  */
 class Item
 {
@@ -24,36 +24,36 @@ class VarietyStore
 public:
     //vector<Item>& items;
      // VarietyStore(vector<Item>& items);
-    vector<Item*> items;
+    vector<shared_ptr<Item>> items;
     VarietyStore();
  
-    void addItem(Item* rhs);
+    void addItem(std::shared_ptr<Item> rhs);
     void updateItems();
 private:
 	void updateSingleItem(int idx);
 };
 
 
-class Maotai :public Item { //Ã©Ì¨
+class Maotai :public Item { //èŒ…å°
 public:
     Maotai(string name, int sellDeadline, int price) :Item(name, sellDeadline, price) {}
     virtual void updateItem() override;
 };
 
-class Kimi :public Item {  //ÆæÒì¹û
+class Kimi :public Item {  //å¥‡å¼‚æœ
 public:
     Kimi(string name, int sellDeadline, int price) :Item(name, sellDeadline, price) {}
     virtual void updateItem() override;
 };
 
-class Diamond :public Item {  //×êÊ¯
+class Diamond :public Item {  //é’»çŸ³
 public:
     Diamond(string name, int sellDeadline, int price) :Item(name, sellDeadline, price) {}
     virtual void updateItem() override;
 };
 
 
-class Banana :public Item { //Ïã½¶
+class Banana :public Item { //é¦™è•‰
 public:
     Banana(string name, int sellDeadline, int price) :Item(name, sellDeadline, price) {}
     virtual void updateItem() override;

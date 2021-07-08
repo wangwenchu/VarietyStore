@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "VarietyStore.h"
 
 void Item::updateItem()
@@ -21,7 +21,7 @@ VarietyStore::VarietyStore()
 	items.clear();
 }
 
-void VarietyStore::addItem(Item* rhs)
+void VarietyStore::addItem(shared_ptr<Item>rhs)
 {
 	items.push_back(rhs);
 }
@@ -75,7 +75,7 @@ void Kimi::updateItem()
 	
 }
 
-void Diamond::updateItem()  //ʲôҲ����
+void Diamond::updateItem()  //什么也不做
 {
 
 }

@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "VarietyStore.h"
 
 #include <iostream>
@@ -15,24 +15,24 @@ ostream& operator<<(ostream& s, Item* item)
 int fun()
 {
 	vector<Item> items;
-	items.push_back(Item("Ãæ°ü", 10, 20));
-	items.push_back(Item("Ã©Ì¨", 2, 0));
-	items.push_back(Item("·½±ãÃæ", 5, 7));
-	items.push_back(Item("×ê½ä", 0, 80));
-	items.push_back(Item("×ê½ä", -1, 80));
-	items.push_back(Item("ÆæÒì¹û", 15, 20));
-	items.push_back(Item("ÆæÒì¹û", 10, 49));
-	items.push_back(Item("ÆæÒì¹û", 5, 49));
-	//TODO Ïã½¶ Õâ¸öÉÌÆ·µÄ¹ÜÀíÂß¼­»¹Ã»ÓĞÍê³É
-	items.push_back(Item("Ïã½¶", 3, 6));
+	items.push_back(Item("é¢åŒ…", 10, 20));
+	items.push_back(Item("èŒ…å°", 2, 0));
+	items.push_back(Item("æ–¹ä¾¿é¢", 5, 7));
+	items.push_back(Item("é’»æˆ’", 0, 80));
+	items.push_back(Item("é’»æˆ’", -1, 80));
+	items.push_back(Item("å¥‡å¼‚æœ", 15, 20));
+	items.push_back(Item("å¥‡å¼‚æœ", 10, 49));
+	items.push_back(Item("å¥‡å¼‚æœ", 5, 49));
+	//TODO é¦™è•‰ è¿™ä¸ªå•†å“çš„ç®¡ç†é€»è¾‘è¿˜æ²¡æœ‰å®Œæˆ
+	items.push_back(Item("é¦™è•‰", 3, 6));
 	VarietyStore app(items);
 
-	cout << "»¶Ó­À´µ½ 8-12 ±ãÀûµê!" << endl;
+	cout << "æ¬¢è¿æ¥åˆ° 8-12 ä¾¿åˆ©åº—!" << endl;
 
 	for (int day = 0; day <= 30; day++)
 	{
-		cout << "-------- µÚ " << day << " Ìì --------" << endl;
-		cout << "Ãû³Æ, ±£ÖÊÆÚ, ¼ÛÇ®" << endl;
+		cout << "-------- ç¬¬ " << day << " å¤© --------" << endl;
+		cout << "åç§°, ä¿è´¨æœŸ, ä»·é’±" << endl;
 		for (vector<Item>::iterator i = items.begin(); i != items.end(); i++)
 		{
 			cout << *i << endl;
@@ -47,32 +47,24 @@ int fun()
 
 /*
 int main() {
-	Item *p1 = new Item("Ãæ°ü", 10, 20);
-	auto *p2 = new Maotai("Ã©Ì¨", 2, 0);
-	auto *p3 = new Item("·½±ãÃæ", 5, 7);
-	auto *p4 = new Diamond("×ê½ä", 0, 80);
-	auto *p5 = new Diamond("×ê½ä", -1, 80);
-	auto *p6 = new Kimi("ÆæÒì¹û", 15, 20);
-	auto *p7 = new Kimi("ÆæÒì¹û", 10, 49);
-	auto *p8 = new Kimi("ÆæÒì¹û", 5, 49);
-	auto* p9 = new Banana("Ïã½¶", 3, 6);
+	
 	VarietyStore app;
-	app.addItem(p1);
-	app.addItem(p2);
-	app.addItem(p3);
-	app.addItem(p4);
-	app.addItem(p5);
-	app.addItem(p6);
-	app.addItem(p7);
-	app.addItem(p8);
-	app.addItem(p9);
+	app.addItem(std::make_shared<Item>("é¢åŒ…", 10, 20));
+	app.addItem(std::make_shared<Maotai>("èŒ…å°", 2, 0));
+	app.addItem(std::make_shared<Item>("æ–¹ä¾¿é¢", 5, 7));
+	app.addItem(std::make_shared<Diamond>("é’»æˆ’", 0, 80));
+	app.addItem(std::make_shared<Diamond>("é’»æˆ’", -1, 80));
+	app.addItem(std::make_shared<Kimi>("å¥‡å¼‚æœ", 15, 20));
+	app.addItem(std::make_shared<Kimi>("å¥‡å¼‚æœ", 10, 49));
+	app.addItem(std::make_shared<Kimi>("å¥‡å¼‚æœ", 5, 49));
+	app.addItem(std::make_shared<Banana>("é¦™è•‰", 3, 6));
 
-	cout << "»¶Ó­À´µ½ 8-12 ±ãÀûµê!" << endl;
+	cout << "æ¬¢è¿æ¥åˆ° 8-12 ä¾¿åˆ©åº—!" << endl;
 
 	for (int day = 0; day <= 30; day++)
 	{
-		cout << "-------- µÚ " << day << " Ìì --------" << endl;
-		cout << "Ãû³Æ, ±£ÖÊÆÚ, ¼ÛÇ®" << endl;
+		cout << "-------- ç¬¬ " << day << " å¤© --------" << endl;
+		cout << "åç§°, ä¿è´¨æœŸ, ä»·é’±" << endl;
 		for (auto i = app.items.begin(); i != app.items.end(); i++)
 		{
 			cout << *i << endl;
@@ -81,5 +73,4 @@ int main() {
 		cout << endl;
 	}
 }
-
 */
